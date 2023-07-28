@@ -16,7 +16,7 @@ const Signup = () => {
             setIsLoading(true);
             setError(null);
 
-            const response = await fetch('https://gallery-dh9v.onrender.com/api/user/signup', {
+            const response = await fetch('https://gallery-2lmy.onrender.com/api/user/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
