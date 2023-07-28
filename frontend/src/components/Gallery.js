@@ -32,7 +32,7 @@ const Gallery = () => {
         allImages = jsonResp.items;
 
          // console.log('url',url);
-         console.log(Images Fetched);
+         console.log('Images Fetched');
         let tmp_images = [];
         for (let i = 0; i < 6; i++) {
             tmp_images.push(allImages[i]);
