@@ -12,7 +12,7 @@ export const AuthState = (props) => {
           const chkUser = JSON.parse(localStorage.getItem('user'));
           if (chkUser) {
               const verifyUser=async()=>{
-               const response = await fetch('/api/user/verify', {
+               const response = await fetch('https://gallery-2lmy.onrender.com/api/user/verify', {
                     method: 'GET',
                     headers: {
                       'Authorization': `Bearer ${chkUser.token}`
