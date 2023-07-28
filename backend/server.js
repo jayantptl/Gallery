@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const userRoutes = require('./routes/user')
 const mongoose = require('mongoose');
-
+const cors = require("cors");
 
 
 
@@ -13,6 +13,11 @@ const app = express();
 const port = process.env.PORT;
 
 // middleware
+app.use(
+    cors({
+      origin: "*",
+    })
+  );
 app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.path, req.method);
