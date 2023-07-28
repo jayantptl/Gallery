@@ -26,15 +26,13 @@ const Gallery = () => {
     // async function to fetch images from drive
     const getimg = async () => {
         setLoading(true);
-        const response = await fetch(
-            GOOGLE_DRIVE_URL_START +
-            FOLDER_ID +
-            GOOGLE_DRIVE_URL_END +
-            GOOGLE_API_KEY
-        )
+        const url = GOOGLE_DRIVE_URL_START + FOLDER_ID + GOOGLE_DRIVE_URL_END + GOOGLE_API_KEY;
+        const response = await fetch(url);
         const jsonResp = await response.json();
         allImages = jsonResp.items;
 
+         console.log('url',url);
+         console.log(allImages);
         let tmp_images = [];
         for (let i = 0; i < 6; i++) {
             tmp_images.push(allImages[i]);
