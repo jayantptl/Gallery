@@ -11,7 +11,23 @@ export const AuthState = (props) => {
      useEffect(() => {
           const chkUser = JSON.parse(localStorage.getItem('user'));
           if (chkUser) {
-              setUser(chkUser);
+              const verifyUser=async()=>{
+               const response = await fetch('/api/user/verify', {
+                    method: 'GET',
+                    headers: {
+                      'Authorization': `Bearer ${chkUser.token}`
+                    }
+                  })
+              
+                  const json = await response.json();       // we sent json as a response in post req check server post req
+                  if (!response.ok) {
+                    setUser(null);
+                  }
+                  else{
+                    setUser(chkUser);
+                  }
+              }
+             verifyUser();
           }
      }, [])
 
